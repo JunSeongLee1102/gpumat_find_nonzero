@@ -1,6 +1,5 @@
 #pragma once
 #define CUDA_API_PER_THREAD_DEFAULT_STREAM
-//#include "uled_brightness_calculation.h" 
 #define _USE_MATH_DEFINES
 
 #include <fstream>
