@@ -8,7 +8,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.ticker import (MultipleLocator, AutoMinorLocator)
 
-f=open('계산 소요 시간 데이터.txt', 'r')
+f=open('속도 테스트 결과.txt', 'r')
 L=f.readlines()
 f.close()
 
