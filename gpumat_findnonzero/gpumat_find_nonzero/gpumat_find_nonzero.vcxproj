@@ -23,7 +23,6 @@
   </ItemGroup>
   <ItemGroup>
     <CudaCompile Include="gpumat_find_nonzero.cu" />
-    <CudaCompile Include="types.cu" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cuda_utils.cuh" />
@@ -116,7 +115,7 @@
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
+      <ConformanceMode>false</ConformanceMode>
       <AdditionalIncludeDirectories>C:\utils\opencv_sources\opencv_build_debug\install\include;$(CudaToolkitIncludeDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>

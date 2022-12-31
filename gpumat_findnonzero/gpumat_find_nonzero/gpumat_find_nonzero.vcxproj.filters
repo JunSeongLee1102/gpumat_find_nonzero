@@ -23,9 +23,6 @@
     <CudaCompile Include="gpumat_find_nonzero.cu">
       <Filter>소스 파일</Filter>
     </CudaCompile>
-    <CudaCompile Include="types.cu">
-      <Filter>소스 파일</Filter>
-    </CudaCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gpumat_find_nonzero.cuh">

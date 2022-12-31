@@ -28,7 +28,7 @@ using cv::cuda::GpuMat;
 
 //iteration 횟수 설정 및 FIND_NONZERO_MODE 설정: CPU, CPU_DOWNLOAD, GPU, GPU_VALIDATION
 const int num_iterations = 11;
-FIND_NONZERO_MODE mode_find_nonzero = FIND_NONZERO_MODE::CPU_DOWNLOAD;
+FIND_NONZERO_MODE mode_find_nonzero = FIND_NONZERO_MODE::GPU;
 
 
 void display(Mat image, int x_size = 1000, int y_size = 1000)
@@ -53,7 +53,7 @@ void main()
     cv::Rect rect = cv::Rect(0, 0, img_size / 10, img_size / 10);
     cv::rectangle(sample_img, cv::Rect(0, 0, img_size / 10, img_size / 10), cv::Scalar(255), -1);
     cv::Mat sample_nonzeros;
-       
+
     if (mode_find_nonzero != FIND_NONZERO_MODE::CPU)
     {
         cv_stream = new cv::cuda::Stream();
@@ -97,9 +97,9 @@ void main()
                 cv::Mat gpu_result_store(img_size, img_size, CV_8UC1, cv::Scalar(0));
                 
                 //GpuMat find nonzero 결과 옮기기
-                for (int j = 0; j < gpumat_find_nonzero->_num_nonzeros; j++)
+                for (int j = 0; j < gpumat_find_nonzero->num_nonzeros_; j++)
                 {
-                    gpu_result_store.at<unsigned char>(gpumat_find_nonzero->_cpu_nonzero_xy_coords[j].y, gpumat_find_nonzero->_cpu_nonzero_xy_coords[j].x) = unsigned char(255);
+                    gpu_result_store.at<unsigned char>(gpumat_find_nonzero->cpu_nonzero_xy_coords_[j].y, gpumat_find_nonzero->cpu_nonzero_xy_coords_[j].x) = unsigned char(255);
                 }
 
                 //원본 이미지와 일치 여부 판정

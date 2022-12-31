@@ -23,25 +23,25 @@ public:
 	~GpuMatFindNonzero();
 
 	void findNonzero(cv::cuda::GpuMat, bool is_validation = false);
-	//NonzeroCoords* _nonzero_coords;
-	int      _num_nonzeros;
-	PointXY* _gpu_nonzero_xy_coords;
+
+	int      num_nonzeros_;
+	PointXY* gpu_nonzero_xy_coords_;
 	//°ËÁõ¿ë
-	PointXY* _cpu_nonzero_xy_coords;
+	PointXY* cpu_nonzero_xy_coords_;
 private:
-	cudaStream_t* _stream;
-	int _rows;
-	int _cols;
-	int _step;
-	int _max_num_nonzeros;
+	cudaStream_t* stream_;
+	int rows_;
+	int cols_;
+	int step_;
+	int max_num_nozneros_;
 
-	int _row_block_size;
-	int _col_block_size;
+	int row_block_size_;
+	int col_block_size_;
 
-	dim3 _block;
-	dim3 _grid;
-	int* _cpu_num_nonzeros;
-	int* _gpu_num_nonzeros;
+	dim3 block_;
+	dim3 grid_;
+	int* cpu_num_nonzeros_;
+	int* gpu_num_nonzeros_;
 
 };
 
